@@ -20,12 +20,12 @@ class App extends Component {
       {
         id: 3,
         title: 'Charts',
-        completed: true
+        completed: false
       },
       {
         id: 4,
         title: 'ToDo',
-        completed: true
+        completed: false
       }
     ]
   }
@@ -44,10 +44,16 @@ class App extends Component {
   }
 
 
-  markComplete = (e) => {
-    console.log('ok');
+  markComplete = (id) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      })
+    });
   }
-
 }
 
 export default App;
