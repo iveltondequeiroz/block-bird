@@ -2,6 +2,6 @@
 
 Blockchain Data visualizations using React
 
-### `npm start`
-- React
-- Context Api
+### `Stack`
+- `React`
+- `Context Api`
