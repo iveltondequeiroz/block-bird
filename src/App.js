@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './block-bird-p.png';
 import './App.css';
 import Todos from './components/Todos';
+import TopMarketCapChart from './components/TopMarketCapChart';
 
 class App extends Component {
   render() {
@@ -13,7 +14,9 @@ class App extends Component {
             Block Bird
           </p>
         </header>
+        <TopMarketCapChart />
         <Todos />
+
       </div>
     );
   }

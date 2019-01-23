@@ -4,7 +4,7 @@
 
 ![block-bird](block-bird-p.png)
 
-### `Stack`
+### Stack
 - `React`
 - `Context Api`
 - TODO CoinBase / CoinMarketCap API
