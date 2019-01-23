@@ -1,7 +1,7 @@
 ## BLOCK BIRD
 
 `Blockchain Data visualizations using React`
-![block-bird](block-bird-p.PNG)
+![block-bird](block-bird-p.png)
 
 ### `Stack`
 - `React`
