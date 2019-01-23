@@ -1,7 +1,14 @@
 ## BLOCK BIRD
 
-Blockchain Data visualizations using React
+`Blockchain Data visualizations using React`
+![block-bird](block-bird-p.PNG)
 
 ### `Stack`
 - `React`
 - `Context Api`
+- TODO CoinBase / CoinMarketCap API
+- TODO `Chart.js`
+- TODO `D3.js`
+- TODO - `Node / Express Server`
+- TODO - `MongoDB`
+- TODO - `GraphQL`
