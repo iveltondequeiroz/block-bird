@@ -8,7 +8,8 @@
 - `React`
 - `Context Api`
 - `Chart.js`
-- TODO CoinBase / CoinMarketCap API
+- `Axios`
+- `CryptoCompare API`
 - TODO `D3.js`
 - TODO - `Node / Express Server`
 - TODO - `MongoDB`

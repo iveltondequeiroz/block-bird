@@ -5,6 +5,7 @@ import Todos from './components/Todos';
 import TopMarketCapChart from './components/TopMarketCapChart';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
@@ -14,7 +15,7 @@ class App extends Component {
             Block Bird
           </p>
         </header>
-        <TopMarketCapChart />
+        <TopMarketCapChart legendPosition="bottom" />
         <Todos />
 
       </div>

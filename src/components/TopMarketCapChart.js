@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
-import { HorizontalBar, Pie } from 'react-chartjs-2';
+import { HorizontalBar } from 'react-chartjs-2';
+import axios from 'axios';
 
 
 class TopMarketCapChart extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
-			data: {
-				labels: ['BTC', 'XRP', 'ETH', 'BCH', 'EOS', 'XML', 'LTC', 'TRX', 'BSV', 'ADA'],
-				datasets: [{
-					label: 'Market Cap',
-					data: [63307190, 13108237, 12421383, 2304829, 2227361, 1988543, 1935074, 1804838, 1334380, 1137484
-					],
-					backgroundColor: ['orange', 'gray', 'blue', 'green', 'black', 'blue', 'gray', 'gray', 'gold'],
-					borderWidth: 3,
-					hoverBorderWidth: 1,
-					hoverBorderColor: 'black'
-				}]
-			},
+			data: {},
 			options: {
 				title: {
 					display: true,
@@ -27,11 +17,48 @@ class TopMarketCapChart extends Component {
 				},
 				legend: {
 					display: true,
-					position: 'bottom'
+					position: this.props.legendPosition
 				},
 				maintainAspectRatio: false
-			}
+			},
+			url: 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD'
 		}
+	}
+
+	static defaultProps = {
+		legendPosition: 'right'
+	}
+
+	componentWillMount() {
+		let labels = [];
+		let mktcap = [];
+		axios.get(this.state.url)
+			.then(res => {
+				const cryptos = res.data.Data;
+				const list = cryptos.map((l) => {
+					labels.push(l.CoinInfo.Name);
+					mktcap.push(parseInt(l.RAW.USD.MKTCAP));
+					return l;
+				})
+				this.setChartData(labels, mktcap);
+			})
+
+	}
+
+	setChartData(cryptoLabels, mktcap) {
+		this.setState({
+			data: {
+				labels: cryptoLabels,
+				datasets: [{
+					label: 'Market Cap',
+					data: mktcap,
+					backgroundColor: ['orange', 'gray', 'blue', 'green', 'black', 'blue', 'gray', 'gray', 'gold'],
+					borderWidth: 3,
+					hoverBorderWidth: 1,
+					hoverBorderColor: 'black'
+				}]
+			}
+		});
 	}
 
 	render() {
