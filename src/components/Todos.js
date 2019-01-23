@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TodoItem from './TodoItem';
+import { AppContext } from './../contexts/AppContext';
 import PropTypes from 'prop-types';
 
 class Todos extends Component {
@@ -14,5 +15,8 @@ Todos.propTypes = {
 	todos: PropTypes.array.isRequired
 }
 
-export default Todos;
-
+export default () => (
+	<AppContext.Consumer>
+		{({ todos, markComplete }) => <Todos todos={todos} markComplete={markComplete} />}
+	</AppContext.Consumer>
+);
