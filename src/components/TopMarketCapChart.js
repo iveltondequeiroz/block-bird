@@ -35,10 +35,10 @@ class TopMarketCapChart extends Component {
 		axios.get(this.state.url)
 			.then(res => {
 				const cryptos = res.data.Data;
-				const list = cryptos.map((l) => {
-					labels.push(l.CoinInfo.Name);
-					mktcap.push(parseInt(l.RAW.USD.MKTCAP));
-					return l;
+				cryptos.map((crypto) => {
+					labels.push(crypto.CoinInfo.Name);
+					mktcap.push(parseInt(crypto.RAW.USD.MKTCAP));
+					return crypto;
 				})
 				this.setChartData(labels, mktcap);
 			})

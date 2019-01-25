@@ -10,6 +10,7 @@
 - `Chart.js`
 - `Axios`
 - `CryptoCompare API`
+- `Semantic UI`
 - TODO `D3.js`
 - TODO - `Node / Express Server`
 - TODO - `MongoDB`
