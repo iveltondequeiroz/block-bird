@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HorizontalBar } from 'react-chartjs-2';
+import { HorizontalBar, Doughnut } from 'react-chartjs-2';
 import axios from 'axios';
 
 
@@ -8,6 +8,7 @@ class TopMarketCapChart extends Component {
 		super(props);
 
 		this.state = {
+			chartType: this.props.chartType,
 			data: {},
 			options: {
 				title: {
@@ -64,12 +65,23 @@ class TopMarketCapChart extends Component {
 	render() {
 		return (
 			<div className="topcap">
-				<HorizontalBar
-					data={this.state.data}
-					options={this.state.options}
-					width={100}
-					height={460}
-				/>
+				{this.props.chartType === 'bar' &&
+					< HorizontalBar
+						data={this.state.data}
+						options={this.state.options}
+						width={100}
+						height={460}
+					/>
+				}
+				{this.props.chartType === 'doughnut' &&
+					< Doughnut
+						data={this.state.data}
+						options={this.state.options}
+						width={100}
+						height={460}
+					/>
+				}
+
 			</div>
 		)
 	}
