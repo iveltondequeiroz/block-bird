@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import { AppProvider, AppContext } from './contexts/AppContext';
 
-
 ReactDOM.render(
 	<AppProvider>
 		<AppContext.Consumer>

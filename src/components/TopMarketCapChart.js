@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { HorizontalBar, Doughnut } from 'react-chartjs-2';
+import { Bar, Doughnut } from 'react-chartjs-2';
 import axios from 'axios';
-
 
 class TopMarketCapChart extends Component {
 	constructor(props) {
@@ -66,7 +65,7 @@ class TopMarketCapChart extends Component {
 		return (
 			<div className="topcap">
 				{this.props.chartType === 'bar' &&
-					< HorizontalBar
+					< Bar
 						data={this.state.data}
 						options={this.state.options}
 						width={100}
